@@ -555,8 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3d3628fc46e624eb399e3ac1a459c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiltForce: 10
-  pushForce: 20
+  forceMultiplier: 10
 --- !u!64 &1250367195
 MeshCollider:
   m_ObjectHideFlags: 0
