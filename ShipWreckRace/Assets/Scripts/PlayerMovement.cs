@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float forceMultiplier = 10f;
+    public int tiltForce = 20;
+    public int pushForce = 5;
     private Rigidbody rb;
 
     void Start()
@@ -13,36 +14,24 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // Sprawdzanie naciœniêcia klawiszy 'a' i 'd'
-        bool moveLeft = Input.GetKey(KeyCode.A);
-        bool moveRight = Input.GetKey(KeyCode.D);
+        bool keyA = Input.GetKey(KeyCode.A);
+        bool keyD = Input.GetKey(KeyCode.D);
 
-        // Je¿eli naciœniêto oba klawisze jednoczeœnie
-        if (moveLeft && moveRight)
+        if(keyA && !keyD)
         {
-            //skakanie
+            rb.AddForce(Vector3.left * tiltForce);
+            rb.AddForce(Vector3.forward * pushForce);
         }
-        else
+        else if(!keyA && keyD)
         {
-            // Poruszanie siê w lewo
-            if (moveLeft)
-            {
-                ApplyForce(Vector3.left);
-            }
-
-            // Poruszanie siê w prawo
-            if (moveRight)
-            {
-                ApplyForce(Vector3.right);
-            }
+            rb.AddForce(Vector3.right * tiltForce);
+            rb.AddForce(Vector3.forward * pushForce);
         }
-    }
-    void ApplyForce(Vector3 direction)
-    {
-        // Obliczanie si³y na podstawie kierunku i mno¿nika si³y
-        Vector3 force = direction * forceMultiplier * Time.deltaTime;
-        rb.AddForce(force);
+        else if(keyA && keyD)
+        {
+            rb.AddForce(Vector3.up * tiltForce * 10);
+        }
     }
 }
