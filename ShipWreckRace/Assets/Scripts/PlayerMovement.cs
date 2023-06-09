@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Rotacja: " + rotation);
             rotateCounter = rotateCounter + 1;
             Debug.Log("Counter: " + rotateCounter);
-            transform.Rotate(0f, 0f, rotation);
+            transform.Rotate(rotation, 0f, rotation);
 
             /*Quaternion currentRotation = transform.rotation;
             Vector3 currentEulerAngles = currentRotation.eulerAngles;
