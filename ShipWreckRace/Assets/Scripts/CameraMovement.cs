@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class CameraMovement : MonoBehaviour
 {
     public Transform targetTransform;
+    public float smoothSpeed = 0.125f;
     private Vector3 offset;
     void Start()
     {
@@ -14,6 +15,8 @@ public class CameraMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        Vector3 desiredPosition = targetTransform.position + offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+        transform.position = smoothedPosition;
     }
 }
