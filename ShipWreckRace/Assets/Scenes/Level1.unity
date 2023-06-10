@@ -943,7 +943,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 31e3c475d35b2174ea6bf9e36ffdf591, type: 3}
       propertyPath: m_RootOrder
-      value: 74
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 31e3c475d35b2174ea6bf9e36ffdf591, type: 3}
       propertyPath: m_LocalScale.x
@@ -2001,7 +2001,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6ed701dd0dc3e5842857a3b913c2bb24, type: 3}
       propertyPath: m_RootOrder
-      value: 76
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed701dd0dc3e5842857a3b913c2bb24, type: 3}
       propertyPath: m_LocalScale.x
@@ -2908,7 +2908,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6ed701dd0dc3e5842857a3b913c2bb24, type: 3}
       propertyPath: m_RootOrder
-      value: 75
+      value: 74
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6ed701dd0dc3e5842857a3b913c2bb24, type: 3}
       propertyPath: m_LocalScale.x
@@ -3575,7 +3575,8 @@ MonoBehaviour:
   camTarget: {fileID: 2112175389}
   pLerp: 0.02
   rLerp: 0.01
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: -60, y: 15, z: 0}
+  rotationOffset: {x: 12, y: 90, z: 0}
 --- !u!1001 &972931042
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5136,7 +5137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: c4b623c49f76de54e9fe5e21e0df09cb, type: 3}
       propertyPath: m_RootOrder
-      value: 77
+      value: 76
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c4b623c49f76de54e9fe5e21e0df09cb, type: 3}
       propertyPath: m_LocalScale.x
@@ -7989,7 +7990,8 @@ MonoBehaviour:
   camTarget: {fileID: 0}
   pLerp: 0.02
   rLerp: 0.01
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: -60, y: 15, z: 0}
+  rotationOffset: {x: 12, y: 90, z: 0}
 --- !u!81 &2139656093
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8057,7 +8059,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2139656091}
   m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: -483.9, y: 95, z: 60}
+  m_LocalPosition: {x: -547.65, y: 202.8, z: 71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
