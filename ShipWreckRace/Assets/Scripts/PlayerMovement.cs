@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
         bool keyA = Input.GetKey(KeyCode.A);
         bool keyD = Input.GetKey(KeyCode.D);
 
+        Rigidbody rigidbody = GetComponent<Rigidbody>();
+
         if(keyA)
         {
             leftOar.Rotate(Vector3.back * speed * Time.deltaTime);
