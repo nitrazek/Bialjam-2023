@@ -15,12 +15,12 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("SampleScene");
         });
 
         settingsButton.onClick.AddListener(() =>
         {
-            // przechodzi na scenê z ustawieniami
+            SceneManager.LoadScene("SettingsScene");
         });
 
         quitButton.onClick.AddListener(() =>
