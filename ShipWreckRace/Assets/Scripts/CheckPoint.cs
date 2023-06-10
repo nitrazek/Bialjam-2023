@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    [SerializeField]
-    List<GameObject> checkPoints;
-    [SerializeField]
-    Vector3 vectorPoint;
+    private Vector3 vectorPoint;
+    private Quaternion rotation;
 
     void Start()
     {
         vectorPoint = transform.position;
+        rotation = transform.rotation;
     }
 
     void OnTriggerEnter(Collider other)
@@ -20,11 +19,13 @@ public class CheckPoint : MonoBehaviour
         if(other.name == "DEATH")
         {
             transform.position = vectorPoint;
+            transform.rotation = rotation;
         }
         else if(other.gameObject.tag == "checkpoint")
         {
             other.gameObject.SetActive(false);
             vectorPoint = transform.position;
+            rotation = transform.rotation;
         }
     }
 }
