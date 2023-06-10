@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class KeyBindingsUI : MonoBehaviour
@@ -15,6 +16,7 @@ public class KeyBindingsUI : MonoBehaviour
     [SerializeField] private Button p2_rightInput;
     [SerializeField] private Button p2_forwardInput;
     [SerializeField] private Button p2_backInput;
+    [SerializeField] private Button returnBtn;
     private int lastButtonPressedIndex = 0;
     void Start()
     {
@@ -37,6 +39,10 @@ public class KeyBindingsUI : MonoBehaviour
         p2_rightInput.onClick.AddListener(() => mapKey(6, p2_rightInput));
         p2_forwardInput.onClick.AddListener(() => mapKey(7, p2_forwardInput));
         p2_backInput.onClick.AddListener(() => mapKey(8, p2_backInput));
+
+        returnBtn.onClick.AddListener(() => {
+            SceneManager.LoadScene("MainMenuScene");
+        });
     }
 
     void Update()
@@ -67,15 +73,30 @@ public class KeyBindingsUI : MonoBehaviour
                 mapKey(0, p1_rightInput, pressedKey.ToString());
                 break;
             case 3:
+                GameConfig.p1_forward = pressedKey;
+                mapKey(0, p1_forwardInput, pressedKey.ToString());
+                break;
+            case 4:
+                GameConfig.p1_back = pressedKey;
+                mapKey(0, p1_backInput, pressedKey.ToString());
+                break;
+            case 5:
                 GameConfig.p2_left = pressedKey;
                 mapKey(0, p2_leftInput, pressedKey.ToString());
                 break;
-            case 4:
+            case 6:
                 GameConfig.p2_right = pressedKey;
                 mapKey(0, p2_rightInput, pressedKey.ToString());
                 break;
+            case 7:
+                GameConfig.p2_forward = pressedKey;
+                mapKey(0, p2_forwardInput, pressedKey.ToString());
+                break;
+            case 8:
+                GameConfig.p2_back = pressedKey;
+                mapKey(0, p2_backInput, pressedKey.ToString());
+                break;
         }
-        lastButtonPressedIndex = 0;
     }
 
     private void mapKey(int buttonIndex, Button buttonObj, string text = "< >")
