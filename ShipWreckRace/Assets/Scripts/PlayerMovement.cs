@@ -6,16 +6,13 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 30f;
+    [SerializeField] private float rotationSpeed = 50f;
     [SerializeField] private short playerNumber;
-    private float distanceToGround;
     private Rigidbody rb;
     private KeyCode[] buttons;
 
     private void Start()
     {
-        Collider collider = GetComponent<Collider>();
-        distanceToGround = collider.bounds.extents.y;
-        Debug.Log(distanceToGround);
         rb = GetComponent<Rigidbody>();
         buttons = new KeyCode[5];
         if(playerNumber == 1)
@@ -44,8 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
         //transform.Rotate(horizontalInput * transform.TransformDirection(Vector3.up));
         transform.eulerAngles.Set(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-        Debug.Log(IsGrounded());
-        if (IsGrounded()) return;
 
         if (Input.GetKey(buttons[0]))
         {
@@ -57,25 +52,29 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(buttons[1]))
         {
             Debug.Log("Na lewo");
-            transform.Rotate(transform.TransformDirection(Vector3.down));
+            transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.down);
         }
 
         if (Input.GetKey(buttons[2]))
         {
             Debug.Log("Do ty³u");
-            Vector3 movement = moveSpeed * transform.TransformDirection(Vector3.left);
-            rb.AddForce(movement);
+            rb.velocity = moveSpeed * transform.TransformDirection(Vector3.left);
         }
 
         if (Input.GetKey(buttons[3]))
         {
             Debug.Log("Na prawo");
-            transform.Rotate(transform.TransformDirection(Vector3.up));
+            transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.up);
         }
     }
 
-    public bool IsGrounded()
+    private void Balance()
     {
-        return Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
+
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        Debug.Log("kolidjuesz!!");
     }
 }
