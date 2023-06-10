@@ -16,7 +16,7 @@ public class KeyBindingsUI : MonoBehaviour
         p1_leftInput.onClick.AddListener(() => mapKey(1, p1_leftInput));
         p1_rightInput.onClick.AddListener(() => mapKey(2, p1_rightInput));
         p2_leftInput.onClick.AddListener(() => mapKey(3, p2_leftInput));
-        p2_rightInput.onClick.AddListener(() => mapKey(1, p2_rightInput));
+        p2_rightInput.onClick.AddListener(() => mapKey(4, p2_rightInput));
     }
 
     void Update()
@@ -24,29 +24,46 @@ public class KeyBindingsUI : MonoBehaviour
         if (lastButtonPressedIndex == 0) return;
         if (!Input.anyKeyDown) return;
 
-        switch(lastButtonPressedIndex)
+        KeyCode pressedKey = KeyCode.None;
+        foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
+        {
+            if (Input.GetKeyDown(keyCode))
+            {
+                pressedKey = keyCode;
+                break;
+            }
+        }
+        if(pressedKey == KeyCode.None)
+            return;
+
+        switch (lastButtonPressedIndex)
         {
             case 1:
-                GameConfig.p1_left = Input.inputString;
+                GameConfig.p1_left = pressedKey;
+                mapKey(0, p1_leftInput, pressedKey.ToString());
                 break;
             case 2:
-                GameConfig.p1_right = Input.inputString;
+                GameConfig.p1_right = pressedKey;
+                mapKey(0, p1_rightInput, pressedKey.ToString());
                 break;
             case 3:
-                GameConfig.p2_left = Input.inputString;
+                GameConfig.p2_left = pressedKey;
+                mapKey(0, p2_leftInput, pressedKey.ToString());
                 break;
             case 4:
-                GameConfig.p2_right = Input.inputString;
+                GameConfig.p2_right = pressedKey;
+                mapKey(0, p2_rightInput, pressedKey.ToString());
                 break;
         }
         lastButtonPressedIndex = 0;
     }
 
-    private void mapKey(int buttonIndex, Button buttonObj)
+    private void mapKey(int buttonIndex, Button buttonObj, string text = "< >")
     {
         lastButtonPressedIndex = buttonIndex;
-        TextMeshProUGUI text = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
-        if (!text) return;
-        text.text = "< >";
+        TextMeshProUGUI mesh = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
+        if (!mesh) return;
+        Debug.Log(text);
+        mesh.text = text.ToUpperInvariant();
     }
 }
