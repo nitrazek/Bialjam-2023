@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         //rb.AddForce(movement);
 
         //transform.Rotate(horizontalInput * transform.TransformDirection(Vector3.up));
-        Debug.Log(IsGrounded());
+        //Debug.Log(IsGrounded());
         if (!IsGrounded()) return;
 
         if (Input.GetKey(buttons[0]))
