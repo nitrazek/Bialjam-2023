@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform targetTransform;
-    public float smoothSpeed = 0.125f;
-    private Vector3 offset;
-    void Start()
-    {
-        offset = transform.position - targetTransform.position;
-    }
+    public Transform camTarget;
+    public float pLerp = .02f;
+    public float rLerp = .01f;
+    public Vector3 offset;
+    public Vector3 rotationOffset;
 
-    void FixedUpdate()
+    void LateUpdate()
     {
-        Vector3 desiredPosition = targetTransform.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+        Vector3 targetPosition = camTarget.position - camTarget.forward * offset.z + camTarget.up * offset.y + camTarget.right * offset.x;
+        Quaternion targetRotation = camTarget.rotation * Quaternion.Euler(rotationOffset);
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, pLerp);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rLerp);
     }
 }
