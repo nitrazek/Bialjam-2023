@@ -11,8 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private KeyCode[] buttons;
 
+    private int collectibles;
+
     private void Start()
     {
+        collectibles = 0;
         rb = GetComponent<Rigidbody>();
         buttons = new KeyCode[5];
         if(playerNumber == 1)
@@ -44,37 +47,37 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(buttons[0]))
         {
-            Debug.Log("Do przodu");
+            //Debug.Log("Do przodu");
             Vector3 movement = moveSpeed * transform.TransformDirection(Vector3.right);
             rb.velocity = movement;
         }
 
         if (Input.GetKey(buttons[1]))
         {
-            Debug.Log("Na lewo");
+            //Debug.Log("Na lewo");
             transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.down);
         }
 
         if (Input.GetKey(buttons[2]))
         {
-            Debug.Log("Do ty³u");
+            //Debug.Log("Do ty³u");
             rb.velocity = moveSpeed * transform.TransformDirection(Vector3.left);
         }
 
         if (Input.GetKey(buttons[3]))
         {
-            Debug.Log("Na prawo");
+            //Debug.Log("Na prawo");
             transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.up);
         }
     }
 
-    private void Balance()
+    private void OnTriggerEnter(Collider other)
     {
-
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("kolidjuesz!!");
+        if (other.gameObject.tag == "collectible")
+        {
+            other.gameObject.SetActive(false);
+            collectibles++;
+            Debug.Log(collectibles);
+        }
     }
 }
