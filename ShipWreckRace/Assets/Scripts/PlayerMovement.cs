@@ -7,11 +7,15 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 30f;
     [SerializeField] private short playerNumber;
+    private float distanceToGround;
     private Rigidbody rb;
     private KeyCode[] buttons;
 
     private void Start()
     {
+        Collider collider = GetComponent<Collider>();
+        distanceToGround = collider.bounds.extents.y;
+        Debug.Log(distanceToGround);
         rb = GetComponent<Rigidbody>();
         buttons = new KeyCode[5];
         if(playerNumber == 1)
@@ -39,12 +43,15 @@ public class PlayerMovement : MonoBehaviour
         //rb.AddForce(movement);
 
         //transform.Rotate(horizontalInput * transform.TransformDirection(Vector3.up));
+        transform.eulerAngles.Set(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+        Debug.Log(IsGrounded());
+        if (IsGrounded()) return;
 
         if (Input.GetKey(buttons[0]))
         {
             Debug.Log("Do przodu");
             Vector3 movement = moveSpeed * transform.TransformDirection(Vector3.right);
-            rb.AddForce(movement);
+            rb.velocity = movement;
         }
 
         if (Input.GetKey(buttons[1]))
@@ -65,5 +72,10 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("Na prawo");
             transform.Rotate(transform.TransformDirection(Vector3.up));
         }
+    }
+
+    public bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
     }
 }
