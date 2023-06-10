@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 30f;
-    [SerializeField] private float rotationSpeed = 50f;
+    [SerializeField] private float moveSpeed = 4000f;
+    [SerializeField] private float rotationSpeed = 150f;
     [SerializeField] private short playerNumber;
     private BoxCollider boxCollider;
     private Rigidbody rb;
@@ -51,8 +51,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(buttons[0]))
         {
             //Debug.Log("Do przodu");
-            Vector3 movement = moveSpeed * transform.TransformDirection(Vector3.right);
-            rb.velocity = movement;
+            rb.velocity = moveSpeed * Time.deltaTime * transform.TransformDirection(Vector3.right);
         }
 
         if (Input.GetKey(buttons[1]))
@@ -64,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(buttons[2]))
         {
             //Debug.Log("Do ty�u");
-            rb.velocity = moveSpeed * transform.TransformDirection(Vector3.left);
+            rb.AddForce(moveSpeed * Time.deltaTime * transform.TransformDirection(Vector3.left));
         }
 
         if (Input.GetKey(buttons[3]))
@@ -86,6 +85,6 @@ public class PlayerMovement : MonoBehaviour
     
     private bool IsGrounded()
     {
-        return Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + 0.7f);
+        return Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + 1f);
     }
 }
