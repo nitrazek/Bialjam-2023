@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 30f;
     [SerializeField] private float rotationSpeed = 50f;
     [SerializeField] private short playerNumber;
+    private BoxCollider boxCollider;
     private Rigidbody rb;
     private KeyCode[] buttons;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         collectibles = 0;
         rb = GetComponent<Rigidbody>();
+        boxCollider = rb.GetComponent<BoxCollider>();
         buttons = new KeyCode[5];
         if(playerNumber == 1)
         {
@@ -43,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
         //rb.AddForce(movement);
 
         //transform.Rotate(horizontalInput * transform.TransformDirection(Vector3.up));
-        transform.eulerAngles.Set(0f, transform.eulerAngles.y, transform.eulerAngles.z);
+        Debug.Log(IsGrounded());
+        if (!IsGrounded()) return;
 
         if (Input.GetKey(buttons[0]))
         {
@@ -60,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(buttons[2]))
         {
-            //Debug.Log("Do ty³u");
+            //Debug.Log("Do tyï¿½u");
             rb.velocity = moveSpeed * transform.TransformDirection(Vector3.left);
         }
 
@@ -79,5 +82,10 @@ public class PlayerMovement : MonoBehaviour
             collectibles++;
             Debug.Log(collectibles);
         }
+    }
+    
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + 0.5f);
     }
 }
