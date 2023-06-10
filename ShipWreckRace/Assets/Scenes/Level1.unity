@@ -6212,7 +6212,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88ad23b6007a4b047a91bdc9f494ec12, type: 3}
-<<<<<<< Updated upstream
 --- !u!1 &1648868213
 GameObject:
   m_ObjectHideFlags: 0
@@ -6427,8 +6426,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> Stashed changes
 --- !u!1001 &1718441316
 PrefabInstance:
   m_ObjectHideFlags: 0
