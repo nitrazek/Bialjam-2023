@@ -5739,6 +5739,10 @@ PrefabInstance:
       propertyPath: groundLayer.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: groundDetectionDistance
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6617846934511982527, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: m_LocalPosition.z
       value: -10
@@ -8331,6 +8335,14 @@ PrefabInstance:
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: groundDetectionDistance
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: additionalGroundedForceUp
+      value: 4000
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934511982527, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: m_LocalPosition.z
