@@ -3442,7 +3442,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614720413}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 800d26c377321a841a29502d11192561, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5926,8 +5926,16 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: maxNormalAngle
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: YUpCounterForce
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: floatCounterForce
-      value: 4000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: groundLayer.m_Bits
@@ -5936,6 +5944,10 @@ PrefabInstance:
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: groundDetectionDistance
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: additionalGroundedForceUp
+      value: 3000
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934511982527, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6928,7 +6940,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390224952}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 800d26c377321a841a29502d11192561, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8367,8 +8379,12 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: YUpCounterForce
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: floatCounterForce
-      value: 4000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: groundLayer.m_Bits
