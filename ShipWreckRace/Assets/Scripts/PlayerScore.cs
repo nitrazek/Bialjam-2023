@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.Events;
 
 public class PlayerScore : MonoBehaviour
 {
-    public int score { get; private set; }
+    public UnityEvent<PlayerScore> OnPartCollected;
+    public int Score { get; private set; }
 
     public void AddScore()
     {
-        score++;
+        Score++;
+        OnPartCollected.Invoke(this);
     }
 }

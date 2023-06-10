@@ -27,7 +27,7 @@ public class CheckPoint : MonoBehaviour
         else if(other.gameObject.tag == "checkpoint")
         {
             //other.gameObject.SetActive(false);
-            vectorPoint = transform.position;
+            vectorPoint = other.transform.position;
             rotation = transform.rotation;
         }
     }
