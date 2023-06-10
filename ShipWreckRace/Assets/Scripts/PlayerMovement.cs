@@ -5,18 +5,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 30f;
+    [SerializeField] private float moveSpeed = 5000f;
+    [SerializeField] private float rotationSpeed = 150f;
     [SerializeField] private short playerNumber;
-    private float distanceToGround;
+    private BoxCollider boxCollider;
     private Rigidbody rb;
     private KeyCode[] buttons;
 
+    private int collectibles;
+
     private void Start()
     {
-        Collider collider = GetComponent<Collider>();
-        distanceToGround = collider.bounds.extents.y;
-        Debug.Log(distanceToGround);
+        collectibles = 0;
         rb = GetComponent<Rigidbody>();
+        boxCollider = rb.GetComponent<BoxCollider>();
         buttons = new KeyCode[5];
         if(playerNumber == 1)
         {
@@ -36,46 +38,44 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //float verticalInput = Input.GetAxis("Vertical");
-
-        //Vector3 movement = verticalInput * moveSpeed * transform.TransformDirection(Vector3.right);
-        //rb.AddForce(movement);
-
-        //transform.Rotate(horizontalInput * transform.TransformDirection(Vector3.up));
-        transform.eulerAngles.Set(0f, transform.eulerAngles.y, transform.eulerAngles.z);
-        Debug.Log(IsGrounded());
-        if (IsGrounded()) return;
-
-        if (Input.GetKey(buttons[0]))
+        //Debug.Log(IsGrounded());
+        if (Input.GetKey(buttons[0]) && IsGrounded())
         {
-            Debug.Log("Do przodu");
-            Vector3 movement = moveSpeed * transform.TransformDirection(Vector3.right);
-            rb.velocity = movement;
+            //Debug.Log("Do przodu");
+            rb.velocity = moveSpeed * Time.deltaTime * transform.TransformDirection(Vector3.right);
         }
 
         if (Input.GetKey(buttons[1]))
         {
-            Debug.Log("Na lewo");
-            transform.Rotate(transform.TransformDirection(Vector3.down));
+            //Debug.Log("Na lewo");
+            transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.down);
         }
 
-        if (Input.GetKey(buttons[2]))
+        if (Input.GetKey(buttons[2]) && IsGrounded())
         {
-            Debug.Log("Do ty³u");
-            Vector3 movement = moveSpeed * transform.TransformDirection(Vector3.left);
-            rb.AddForce(movement);
+            //Debug.Log("Do tyï¿½u");
+            rb.AddForce(moveSpeed * Time.deltaTime * transform.TransformDirection(Vector3.left));
         }
 
         if (Input.GetKey(buttons[3]))
         {
-            Debug.Log("Na prawo");
-            transform.Rotate(transform.TransformDirection(Vector3.up));
+            //Debug.Log("Na prawo");
+            transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.up);
         }
     }
 
-    public bool IsGrounded()
+    private void OnTriggerEnter(Collider other)
     {
-        return Physics.Raycast(transform.position, Vector3.down, distanceToGround + 0.1f);
+        if (other.gameObject.tag == "collectible")
+        {
+            other.gameObject.SetActive(false);
+            collectibles++;
+            Debug.Log(collectibles);
+        }
+    }
+    
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(boxCollider.bounds.center, Vector3.down, boxCollider.bounds.extents.y + 1f);
     }
 }
