@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 4000f;
+    [SerializeField] private float moveSpeed = 5000f;
     [SerializeField] private float rotationSpeed = 150f;
     [SerializeField] private short playerNumber;
     private BoxCollider boxCollider;
@@ -38,17 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //float horizontalInput = Input.GetAxis("Horizontal");
-        //float verticalInput = Input.GetAxis("Vertical");
-
-        //Vector3 movement = verticalInput * moveSpeed * transform.TransformDirection(Vector3.right);
-        //rb.AddForce(movement);
-
-        //transform.Rotate(horizontalInput * transform.TransformDirection(Vector3.up));
         //Debug.Log(IsGrounded());
-        if (!IsGrounded()) return;
-
-        if (Input.GetKey(buttons[0]))
+        if (Input.GetKey(buttons[0]) && IsGrounded())
         {
             //Debug.Log("Do przodu");
             rb.velocity = moveSpeed * Time.deltaTime * transform.TransformDirection(Vector3.right);
@@ -60,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(rotationSpeed * Time.deltaTime * Vector3.down);
         }
 
-        if (Input.GetKey(buttons[2]))
+        if (Input.GetKey(buttons[2]) && IsGrounded())
         {
             //Debug.Log("Do ty�u");
             rb.AddForce(moveSpeed * Time.deltaTime * transform.TransformDirection(Vector3.left));
