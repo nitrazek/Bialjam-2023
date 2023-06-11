@@ -1316,7 +1316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 218243811}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -331.56, y: 53.2, z: 393.5}
+  m_LocalPosition: {x: -331.56, y: 57.8, z: 393.5}
   m_LocalScale: {x: 5, y: 0.261875, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2215,7 +2215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 321860838}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -126.8, y: 1.8, z: 308.7}
+  m_LocalPosition: {x: -126.8, y: 7.8, z: 308.7}
   m_LocalScale: {x: 5, y: 0.261875, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3052,6 +3052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16751f08033aeac48a08b479763c75af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1_camera: {fileID: 0}
+  p2_camera: {fileID: 0}
 --- !u!23 &371700438
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5217,6 +5219,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58acd069299d64048bf49b15f41436bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &870521878 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6617846934159833488, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+  m_PrefabInstance: {fileID: 1832100895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &881999847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6826,6 +6833,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58acd069299d64048bf49b15f41436bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1147277781 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 6617846934159833488, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+  m_PrefabInstance: {fileID: 1228073451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1184207377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6ed701dd0dc3e5842857a3b913c2bb24, type: 3}
@@ -9358,6 +9370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a3b7aab3f8280488ecd867a8bb5bd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allRigidbodies:
+  - {fileID: 1147277781}
+  - {fileID: 870521878}
 --- !u!4 &1772458193
 Transform:
   m_ObjectHideFlags: 0

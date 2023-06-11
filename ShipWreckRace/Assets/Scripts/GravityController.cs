@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GravityController : MonoBehaviour
 {
-    private Rigidbody[] allRigidbodies;
+    [SerializeField] private Rigidbody[] allRigidbodies;
     // Start is called before the first frame update
     private void Start()
     {
@@ -13,6 +13,7 @@ public class GravityController : MonoBehaviour
 
     public void DisableGravity()
     {
+        if (allRigidbodies == null) Debug.Log("joisef");
         foreach(Rigidbody rb in allRigidbodies)
         {
             rb.useGravity = false;

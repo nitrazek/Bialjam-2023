@@ -15,13 +15,13 @@ public class Counting : MonoBehaviour
         counterText = GetComponent<TextMeshProUGUI>();
         gravityController = FindObjectOfType<GravityController>();
         inputController = FindObjectOfType<InputController>();
-        gravityController.DisableGravity();
-        inputController.DisableInput();
         StartCoroutine(CountingCoroutine());
     }
 
     IEnumerator CountingCoroutine()
     {
+        gravityController.DisableGravity();
+        inputController.DisableInput();
         counterText.text = "3";
         yield return new WaitForSeconds(1);
         counterText.text = "2";
