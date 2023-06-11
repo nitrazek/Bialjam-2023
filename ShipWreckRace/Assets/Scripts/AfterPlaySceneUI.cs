@@ -18,6 +18,7 @@ public class AfterPlaySceneUI : MonoBehaviour
 
         skipButton.onClick.AddListener(() =>
         {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<musicHandler>().StopMusic();
             SceneManager.LoadScene("LEVEL1");
         });
     }

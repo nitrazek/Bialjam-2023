@@ -11,4 +11,16 @@ public class musicHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
     }
+
+    public void PlayMusic()
+    {
+        if (audioSource.isPlaying) return;
+        audioSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        if (!audioSource.isPlaying) return;
+        audioSource.Stop();
+    }
 }
