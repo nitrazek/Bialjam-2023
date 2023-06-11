@@ -19,7 +19,7 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
 
         private enum invertType { input, velocity, none};
 
-        private InputController inputController;
+        [SerializeField] private InputController inputController;
 
         [SerializeField, Tooltip("Which player")]
         private int playerId;
@@ -164,13 +164,13 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
             {
                 rb = GetComponent<Rigidbody>(); //can be setup to not be null using rigidbodySetup function
                 rb.centerOfMass = center.localPosition;
-                inputController = FindObjectOfType<InputController>();
             }
 
         }
 
         private void Update()
         {
+            if (!inputController.IsEnabled()) return;
             gatherInput();
             reCalculateInputs(); // applyies corrects input to be correctly mached with trusts
             // since i gather input in update no thrust will change till next update so i calculate thrusts here
@@ -180,6 +180,7 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
         // Update is called once per frame
         void FixedUpdate()
         {
+            if (!inputController.IsEnabled()) return;
             checkIfGrounded();
             addHoverForce();
             addMoveForces();
@@ -198,7 +199,6 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
 
         private void gatherInput()
         {
-            if (!inputController.IsEnabled()) return;
             if (inputType == InputT.axes)
             {
                 float x = 0, y = 0;

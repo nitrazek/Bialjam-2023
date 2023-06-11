@@ -3,25 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Counting : MonoBehaviour
 {
     private TextMeshProUGUI counterText;
-    private GravityController gravityController;
-    private InputController inputController;
+    [SerializeField] private GravityController gravityController;
+    [SerializeField] private InputController inputController;
     // Start is called before the first frame update
-    void Start()
-    {
-        counterText = GetComponent<TextMeshProUGUI>();
-        gravityController = FindObjectOfType<GravityController>();
-        inputController = FindObjectOfType<InputController>();
-        StartCoroutine(CountingCoroutine());
-    }
+    //private void OnEnable()
+    //{
+    //    SceneManager.activeSceneChanged += OnActiveSceneChanged;
+    //}
 
-    IEnumerator CountingCoroutine()
+    //private void OnDisable()
+    //{
+    //    SceneManager.activeSceneChanged -= OnActiveSceneChanged;
+    //}
+
+    //private void OnActiveSceneChanged(Scene previousScene, Scene currentScene)
+    //{
+    //    Debug.Log("dupalalaparampam");
+    //    //if (currentScene.name != sceneName) return;
+    //    counterText = GetComponent<TextMeshProUGUI>();
+    //    gravityController = FindObjectOfType<GravityController>();
+    //    inputController = FindObjectOfType<InputController>();
+    //    gravityController.DisableGravity();
+    //    inputController.DisableInput();
+    //    Debug.Log(inputController.IsEnabled());
+    //    StartCoroutine(CountingCoroutine());
+    //}
+
+    private void Start()
     {
+        //if (currentScene.name != sceneName) return;
+        counterText = GetComponent<TextMeshProUGUI>();
         gravityController.DisableGravity();
         inputController.DisableInput();
+        Debug.Log(inputController.IsEnabled());
+        StartCoroutine(CountingCoroutine());
+    }
+    IEnumerator CountingCoroutine()
+    {
         counterText.text = "3";
         yield return new WaitForSeconds(1);
         counterText.text = "2";

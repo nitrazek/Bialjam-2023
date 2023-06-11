@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.3273415, g: 0.2819711, b: 0.41690004, a: 1}
+  m_IndirectSpecularColor: {r: 0.32733813, g: 0.28196713, b: 0.41689536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6594,6 +6594,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b4c5c7b4c808f438657bdcfbf18936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
+  gravityController: {fileID: 1772458192}
+  inputController: {fileID: 613264896}
 --- !u!114 &1046576017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8109,6 +8112,10 @@ PrefabInstance:
       propertyPath: YUpCounterForce
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 613264896}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: floatCounterForce
       value: 2000
@@ -11079,6 +11086,10 @@ PrefabInstance:
       propertyPath: YUpCounterForce
       value: 450
       objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 613264896}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: floatCounterForce
       value: 2000
