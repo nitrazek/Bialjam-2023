@@ -17,7 +17,6 @@ public class CheckPoint : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if(other.name == "DEATH")
         {
             transform.position = vectorPoint;

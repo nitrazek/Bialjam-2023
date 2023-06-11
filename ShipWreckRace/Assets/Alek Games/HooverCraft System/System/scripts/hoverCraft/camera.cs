@@ -10,7 +10,7 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
         [SerializeField] private float speed;
         [SerializeField] private Transform cam;
         [SerializeField] private Transform camPos;
-        private bool updatePosition;
+        public bool updatePosition;
         // Start is called before the first frame update
         void Start()
         {
@@ -30,11 +30,6 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
 
             cam.LookAt(target);
 
-        }
-
-        public void DisableUpdate()
-        {
-            updatePosition = false;
         }
 
         public void setup(Transform target, Transform cam, Transform camPos)
