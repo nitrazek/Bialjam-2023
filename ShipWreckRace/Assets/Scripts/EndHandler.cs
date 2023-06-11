@@ -1,13 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using AlekGames.HoverCraftSystem.Systems.Main;
 using UnityEngine;
 
 public class EndHandler : MonoBehaviour
 {
-    [SerializeField]
-    private Camera p1_camera;
-    [SerializeField]
-    private Camera p2_camera;
     private int winner;
 
     void Start()
@@ -15,15 +12,18 @@ public class EndHandler : MonoBehaviour
         winner = 0;
     }
 
-    void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.name == "player1")
+        if(winner == 0 && other.gameObject.name == "player1")
         {
-            
+            winner = 1;
         }
-        else if(other.gameObject.name == "player2")
+        else if(winner == 0 && other.gameObject.name == "player2")
         {
+            winner = 2;
+        }
 
-        }
+        camera cm = other.GetComponent<camera>();
+        cm.DisableUpdate();
     }
 }
