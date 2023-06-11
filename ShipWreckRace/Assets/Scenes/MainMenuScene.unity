@@ -1046,7 +1046,7 @@ MonoBehaviour:
   OnYellButtonClicked:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1573098423}
         m_TargetAssemblyTypeName: RandomYell, Assembly-CSharp
         m_MethodName: PlayRandomYell
         m_Mode: 1
