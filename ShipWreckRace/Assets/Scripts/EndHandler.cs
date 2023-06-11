@@ -2,29 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using AlekGames.HoverCraftSystem.Systems.Main;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EndHandler : MonoBehaviour
 {
     [SerializeField]
     private InputController inputController;
-    private int winner;
+    [SerializeField] private GameObject endingScreen;
+    public int Winner { get; private set; }
+    public UnityEvent<EndHandler> OnWinning;
 
     void Start()
     {
-        winner = 0;
+        Winner = 0;
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if (winner == 0 && other.name == "P1_Cube")
+        if (Winner == 0 && other.name == "P1_Cube")
         {
-            winner = 1;
+            Winner = 1;
         }
-        else if(winner == 0 && other.name == "P2_Cube")
+        else if(Winner == 0 && other.name == "P2_Cube")
         {
-            winner = 2;
+            Winner = 2;
         }
+        endingScreen.SetActive(true);
+        OnWinning.Invoke(this);
         inputController.DisableInput();
-        Debug.Log(winner);
     }
 }
