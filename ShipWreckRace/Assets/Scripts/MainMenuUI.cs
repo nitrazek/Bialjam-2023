@@ -18,7 +18,7 @@ public class MainMenuUI : MonoBehaviour
     {
         playButton.onClick.AddListener(() =>
         {
-            SceneManager.LoadScene("LEVEL1");
+            SceneManager.LoadScene("after-play-scene");
         });
 
         settingsButton.onClick.AddListener(() =>
