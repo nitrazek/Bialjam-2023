@@ -6,6 +6,7 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
 {
     public class camera : MonoBehaviour
     {
+        public bool updatePosition;
         [SerializeField] private Transform target;
         [SerializeField] private float speed;
         [SerializeField] private Transform cam;
@@ -19,9 +20,12 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
         // Update is called once per frame
         void FixedUpdate()
         {
-            Vector3 configuratedCamPos = new Vector3(camPos.position.x, camPos.position.y, camPos.position.z);
-            float distance = Vector3.Distance(camPos.position, cam.position);
-            cam.position = Vector3.MoveTowards(cam.position, configuratedCamPos, speed * Time.deltaTime * distance);
+            if(updatePosition)
+            {
+                Vector3 configuratedCamPos = new Vector3(camPos.position.x, camPos.position.y, camPos.position.z);
+                float distance = Vector3.Distance(camPos.position, cam.position);
+                cam.position = Vector3.MoveTowards(cam.position, configuratedCamPos, speed * Time.deltaTime * distance);
+            }
 
             cam.LookAt(target);
 
