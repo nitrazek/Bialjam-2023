@@ -12,9 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/SettingsScene.unity
     guid: fad72b5369e60ec4889595a08661747a
   - enabled: 1
+    path: Assets/Scenes/after-play-scene.unity
+    guid: fb6fedbe477d5f040bcf50888e1a8994
+  - enabled: 1
+    path: Assets/Scenes/next.unity
+    guid: be7f6084c02632741805b3a06e39bc92
+  - enabled: 1
     path: Assets/Scenes/LEVEL1.unity
     guid: 6c12d32c7db9d114d8c436ade0f20513
   - enabled: 1
     path: Assets/Scenes/LEVEL2.unity
     guid: fbb8997a4b17ef147a2b16a5371e1d98
+  - enabled: 1
+    path: Assets/Scenes/LEVEL3.unity
+    guid: 638a0b334fc616e44ae95fdaa0e4fca5
   m_configObjects: {}
