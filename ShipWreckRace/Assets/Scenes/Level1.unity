@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.32733813, g: 0.28196713, b: 0.41689536, a: 1}
+  m_IndirectSpecularColor: {r: 0.32721415, g: 0.28181586, b: 0.41676643, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6594,7 +6594,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b4c5c7b4c808f438657bdcfbf18936, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: 
   gravityController: {fileID: 1772458192}
   inputController: {fileID: 613264896}
 --- !u!114 &1046576017
@@ -6850,13 +6849,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7962969949b007f48b0cc75049b366da, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 116
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
