@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class EndHandler : MonoBehaviour
 {
-    [SerializeField]
-    private Camera p1_camera;
-    [SerializeField]
-    private Camera p2_camera;
     private int winner;
 
     void Start()
@@ -18,16 +14,14 @@ public class EndHandler : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.name == "P1_Cube")
+        if (winner == 0 && other.name == "P1_Cube")
         {
-            if (winner == 0) winner = 1;
-            p1_camera.GetComponent<camera>().updatePosition = false;
-
+            winner = 1;
         }
-        else if (other.name == "P2_Cube")
+        else if(winner == 0 && other.name == "P2_Cube")
         {
-            if (winner == 0) winner = 2;
-            p2_camera.GetComponent<camera>().updatePosition = false;
+            winner = 2;
         }
+        Debug.Log(winner);
     }
 }

@@ -13,7 +13,6 @@ public class GravityController : MonoBehaviour
 
     public void DisableGravity()
     {
-        if (allRigidbodies == null) Debug.Log("joisef");
         foreach(Rigidbody rb in allRigidbodies)
         {
             rb.useGravity = false;
