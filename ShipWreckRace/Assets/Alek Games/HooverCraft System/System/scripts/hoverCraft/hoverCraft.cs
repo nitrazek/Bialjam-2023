@@ -191,6 +191,11 @@ namespace AlekGames.HoverCraftSystem.Systems.Main
 
         #region values update
 
+        public int getPlayerId()
+        {
+            return playerId;
+        }
+
         private void gatherInput()
         {
             if (!inputController.IsEnabled()) return;
