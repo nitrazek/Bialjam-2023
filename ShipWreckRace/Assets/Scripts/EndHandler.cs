@@ -20,6 +20,8 @@ public class EndHandler : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        if (other.GetComponent<PlayerScore>().Score < 5) return;
+
         if (Winner == 0 && other.name == "P1_Cube")
         {
             Winner = 1;
