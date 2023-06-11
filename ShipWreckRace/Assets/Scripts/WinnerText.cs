@@ -10,11 +10,15 @@ public class WinnerText : MonoBehaviour
     void Start()
     {
         winnerText = GetComponent<TextMeshProUGUI>();
+        EndHandler endHandler = FindObjectOfType<EndHandler>();
+        if (endHandler != null)
+        {
+            endHandler.OnWinning.AddListener(UpdateWinnerText);
+        }
     }
 
     public void UpdateWinnerText(EndHandler endHandler)
     {
-        if (endHandler == null) return;
         winnerText.text = "Player " + endHandler.Winner.ToString();
     }
 }

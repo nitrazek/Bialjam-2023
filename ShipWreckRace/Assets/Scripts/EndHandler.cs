@@ -9,12 +9,13 @@ public class EndHandler : MonoBehaviour
     [SerializeField]
     private InputController inputController;
     [SerializeField] private GameObject endingScreen;
-    public int Winner { get; private set; }
     public UnityEvent<EndHandler> OnWinning;
+    public int Winner { get; private set; }
 
     void Start()
     {
         Winner = 0;
+        OnWinning = new UnityEvent<EndHandler>();
     }
 
     void OnTriggerStay(Collider other)
@@ -28,7 +29,8 @@ public class EndHandler : MonoBehaviour
             Winner = 2;
         }
         endingScreen.SetActive(true);
-        OnWinning.Invoke(this);
+        if (OnWinning == null) Debug.Log("lololol");
+        if(OnWinning != null) OnWinning.Invoke(this);
         inputController.DisableInput();
     }
 }
