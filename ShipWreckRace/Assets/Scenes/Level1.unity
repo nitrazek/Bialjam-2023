@@ -2950,6 +2950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16751f08033aeac48a08b479763c75af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputController: {fileID: 613264896}
 --- !u!23 &371700438
 MeshRenderer:
   m_ObjectHideFlags: 0

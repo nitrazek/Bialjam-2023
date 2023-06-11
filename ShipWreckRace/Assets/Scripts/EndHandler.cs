@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EndHandler : MonoBehaviour
 {
+    [SerializeField]
+    private InputController inputController;
     private int winner;
 
     void Start()
@@ -22,6 +24,7 @@ public class EndHandler : MonoBehaviour
         {
             winner = 2;
         }
+        inputController.DisableInput();
         Debug.Log(winner);
     }
 }
