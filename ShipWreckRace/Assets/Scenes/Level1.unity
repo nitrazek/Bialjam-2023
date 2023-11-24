@@ -1344,12 +1344,13 @@ GameObject:
   - component: {fileID: 237632595}
   - component: {fileID: 237632594}
   - component: {fileID: 237632593}
+  - component: {fileID: 237632596}
   m_Layer: 0
   m_Name: Terrain_(341.50, -62.00, -349.00)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 126
   m_IsActive: 1
 --- !u!154 &237632593
 TerrainCollider:
@@ -1370,7 +1371,7 @@ TerrainCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: c1d8042d8655d8f459e11bb278138897, type: 2}
-  m_EnableTreeColliders: 1
+  m_EnableTreeColliders: 0
 --- !u!218 &237632594
 Terrain:
   m_ObjectHideFlags: 0
@@ -1397,7 +1398,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
+  m_MaterialTemplate: {fileID: 2100000, guid: 18aa95c36599df74dbdb66d7be6c78db, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -1424,6 +1425,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &237632596
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237632592}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 18aa95c36599df74dbdb66d7be6c78db, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &244964198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3609,89 +3652,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5faa6f77308fbf84c847ebe374a92e7b, type: 3}
   m_PrefabInstance: {fileID: 423854530}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &443867138
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 443867141}
-  - component: {fileID: 443867140}
-  - component: {fileID: 443867139}
-  m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &443867139
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443867138}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &443867140
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443867138}
-  m_Mesh: {fileID: 2534964839176971238, guid: 6631e1157eb44a24cb6a275e57e9fa70, type: 3}
---- !u!4 &443867141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 443867138}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -117.69982, y: -1.5429435, z: 340.40366}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 24
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &460827987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8079,9 +8039,13 @@ PrefabInstance:
       propertyPath: updatePosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833488, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: maxSpeed
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: playerId
@@ -8093,7 +8057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: hoverHeight
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: forwardSpeed
@@ -11061,9 +11025,13 @@ PrefabInstance:
       propertyPath: updatePosition
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6617846934159833488, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: maxSpeed
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: playerId
@@ -11071,7 +11039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: hoverHeight
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6617846934159833495, guid: 92f00287be9ce7444986c64cf98bb88c, type: 3}
       propertyPath: forwardSpeed

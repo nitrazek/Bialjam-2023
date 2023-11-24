@@ -26,14 +26,14 @@ public class CheckPoint : MonoBehaviour
         if (playerId == 1 && Input.GetKeyDown(GameConfig.p1_reset))
         {
             transform.position = vectorPoint;
-            transform.rotation = rotation;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             rb.velocity = Vector3.zero;
             source.Play();
         }
         else if (playerId == 2 && Input.GetKeyDown(GameConfig.p2_reset))
         {
             transform.position = vectorPoint;
-            transform.rotation = rotation;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             rb.velocity = Vector3.zero;
             source.Play();
         }
